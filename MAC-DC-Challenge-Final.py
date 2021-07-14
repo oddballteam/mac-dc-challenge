@@ -15,9 +15,11 @@ df2.createOrReplaceTempView("Rob_Test_Managed_Care")
 # MAGIC   Rob_Test_Eligibility
 # MAGIC WHERE
 # MAGIC   final_report = "Y"
+# MAGIC   AND
+# MAGIC   preliminary_updated = "U"
 # MAGIC   AND report_date LIKE "%-01-01%";
 # MAGIC -- delete the table to recreate it
-# MAGIC   DROP TABLE denormalized_data_store;
+# MAGIC   DROP TABLE IF EXISTS denormalized_data_store;
 # MAGIC -- The mega query, create a table "denormalized data"
 # MAGIC   CREATE TABLE denormalized_data_store AS
 # MAGIC SELECT
@@ -48,18 +50,15 @@ df2.createOrReplaceTempView("Rob_Test_Managed_Care")
 # MAGIC   longitude,
 # MAGIC   geocoded_column,
 # MAGIC   total_medicaid_enrollment :: int as total_medicaid_enrollment,
-# MAGIC   total_chip_enrollment :: int as total_chip_enrollment
+# MAGIC   total_chip_enrollment :: int as total_chip_enrollment,
+# MAGIC   report_date
 # MAGIC FROM
 # MAGIC   Rob_Test_Managed_Care
 # MAGIC   INNER JOIN final_reports on Rob_Test_Managed_Care.state LIKE '%' || final_reports.state_name || '%'
+# MAGIC   AND year = YEAR(report_date)
 # MAGIC ORDER BY
 # MAGIC   program_total_enrollment DESC;
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC DESCRIBE  Rob_Test_Managed_Care;
-# MAGIC DESCRIBE denormalized_data_store;
+# MAGIC   
 
 # COMMAND ----------
 
