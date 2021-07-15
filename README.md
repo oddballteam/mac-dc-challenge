@@ -21,3 +21,4 @@
 - `Pull_from_s3_and_reformat.xml` The Nifi flow used to process the data
 - `Report Notebook.py` An externally facing Databricks notebook
 - `sample-data.json` A single row of the combined, denormalized data set
+- `Data Dictionary and Examples.xlsx` A data dictionary explaining the meaning behind the different columns available in the dataset.
