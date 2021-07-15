@@ -20,3 +20,4 @@
 - `MAC-DC-Challenge-Final.sql` The Databricks notebook used to generate the data set
 - `Pull_from_s3_and_reformat.xml` The Nifi flow used to process the data
 - `Report Notebook.py` An externally facing Databricks notebook
+- `sample-data.json` A single row of the combined, denormalized data set
