@@ -12,6 +12,6 @@ assignees: slapula
 Please provide the following information to submit this request:
 
 * Cluster Name:
-* Number of Worker nodes:
+* Number of Worker nodes (Default: 2):
 * Auto-Termination after creation (Default: 2 hours):
-* SSH Public Keys:
+* SSH Public Keys (Optional):
