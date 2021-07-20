@@ -12,6 +12,7 @@ assignees: slapula
 Please provide the following information to submit this request:
 
 * Cluster Name:
+* Databricks User:
 * Number of Worker nodes (Default: 2):
 * Auto-Termination after creation (Default: 2 hours):
 * SSH Public Keys (Optional):
